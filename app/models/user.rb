@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :password,format: {with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/},length: { minimum: 6 }
+    validates :password, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/ }, length: { minimum: 6 }
     validates :birth_day
     with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
       validates :family_name
