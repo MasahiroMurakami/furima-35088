@@ -22,10 +22,10 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def destroy
+  %#def destroy
     @item = Item.find(params[:id])
     @item.destroy
-  end
+  end%#
 
   def edit
   end
