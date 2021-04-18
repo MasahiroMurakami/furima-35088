@@ -14,6 +14,7 @@ class Item < ApplicationRecord
     end
   end
 
+
   has_one :buyer_history
   belongs_to :user
   has_one_attached :image
