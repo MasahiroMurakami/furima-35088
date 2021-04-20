@@ -13,6 +13,12 @@ RSpec.describe BuyerHistoryOrder, type: :model do
       it '全ての項目の入力が正しく入力されていれば購入できる' do
         expect(@buyer_history_order).to be_valid
       end
+
+      it '建物名が空でも購入できる' do
+        @buyer_history_order.building = ''
+        @buyer_history_order.valid?
+        expect(@buyer_history_order).to be_valid
+      end
     end
 
     context '商品購入できないとき' do
@@ -66,6 +72,12 @@ RSpec.describe BuyerHistoryOrder, type: :model do
 
       it '電話番号が11桁を超えると購入できない' do
         @buyer_history_order.phone_number = '080123456789'
+        @buyer_history_order.valid?
+        expect(@buyer_history_order.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it '電話番号が10桁未満だと購入できない' do
+        @buyer_history_order.phone_number = '080123456'
         @buyer_history_order.valid?
         expect(@buyer_history_order.errors.full_messages).to include("Phone number is invalid")
       end

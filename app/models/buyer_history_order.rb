@@ -8,7 +8,7 @@ class BuyerHistoryOrder
     validates :prefecture_id,numericality: { other_than: 1 }
     validates :city
     validates :addresses
-    validates :phone_number, format: {with: /\A\d{11}\z/ },numericality: { only_integer: true}
+    validates :phone_number, format: {with: /\A\d{10,11}\z/ },numericality: { only_integer: true}
     validates :user_id
     validates :item_id
   end
