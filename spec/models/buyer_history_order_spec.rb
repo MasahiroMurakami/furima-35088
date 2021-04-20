@@ -16,11 +16,11 @@ RSpec.describe BuyerHistoryOrder, type: :model do
     end
 
     context '商品購入できないとき' do
-      #it 'クレジット情報が空の場合は登録できない' do
-       #@buyer_history_order.token = nil
-        #@buyer_history_order.valid?
-        #expect(@buyer_history_order.errors.full_messages).to include("Token can't be blank")
-      #end
+      it 'クレジット情報が空の場合は登録できない' do
+        @buyer_history_order.token = nil
+        @buyer_history_order.valid?
+        expect(@buyer_history_order.errors.full_messages).to include("Token can't be blank")
+      end
 
       it '郵便番号が空の場合は登録できない' do
         @buyer_history_order.post_code = ''
