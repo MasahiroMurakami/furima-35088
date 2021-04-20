@@ -10,12 +10,7 @@ class PurchasesController < ApplicationController
   def create
     @buyer_history_order = BuyerHistoryOrder.new(buyer_history_params)
     if @buyer_history_order.valid?
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-      Payjp::Charge.create(
-        amount: @item.price,
-        card: buyer_history_params[:token],
-        currency: 'jpy'
-      )
+      pay_item
       @buyer_history_order.save
       redirect_to root_path
     else
@@ -38,6 +33,15 @@ class PurchasesController < ApplicationController
     if @item.buyer_history.present? || current_user == @item.user
       redirect_to root_path
     end
+  end
+
+  def pay_item
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      Payjp::Charge.create(
+        amount: @item.price,
+        card: buyer_history_params[:token],
+        currency: 'jpy'
+      )
   end
 
 end
