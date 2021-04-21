@@ -17,7 +17,6 @@ class Item < ApplicationRecord
 
   has_one :buyer_history
   belongs_to :user
-  belongs_to :self_introduction
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

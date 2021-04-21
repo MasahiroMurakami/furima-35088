@@ -33,7 +33,7 @@
 
 - belongs_to :user
 - has_many :items dependent: :destroy
-- has_many :buyer_histories
+- has_many :buyer_history
 
 ## orders テーブル
 
