@@ -18,22 +18,6 @@
 
 - has_many :buyer_histories
 - has_many :items dependent: :destroy
-- has_one :self_introduction
-
-## self_introductions テーブル
-
-| Column           | Type    | Options                        |
-| ---------------- | ------- | ------------------------------ |
-| user_id          | integer | null: false, foreign_key: true |
-| item_id          | integer | null: false, foreign_key: true |
-| buyer_history_id | integer | null: false, foreign_key: true |
-| text             | text    | null: false                    |
-
-### Association
-
-- belongs_to :user
-- has_many :items dependent: :destroy
-- has_many :buyer_history
 
 ## orders テーブル
 
@@ -63,7 +47,6 @@
 - belongs_to :user
 - belongs_to :item
 - has_one :order
-- belongs_to :self_introduction
 
 ## items テーブル
 
@@ -82,4 +65,3 @@
 ### Association
 - has_one :buyer_history
 - belongs_to :user
-- belongs_to :self_introduction
