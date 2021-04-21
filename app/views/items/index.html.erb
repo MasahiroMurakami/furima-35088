@@ -127,6 +127,11 @@
 
       <li class='list'>
         <% @items.each do |item| %>
+          <%= link_to "#" do %>
+            <h5 class='user-name'>
+              出品者: <%= item.user.nickname %>
+            </h5>
+          <% end %>
         <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
