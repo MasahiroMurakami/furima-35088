@@ -127,7 +127,7 @@
 
       <li class='list'>
         <% @items.each do |item| %>
-          <%= link_to "#" do %>
+          <%= link_to item_purchase_user_path do %>
             <h5 class='user-name'>
               出品者: <%= item.user.nickname %>
             </h5>

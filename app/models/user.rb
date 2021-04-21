@@ -19,4 +19,5 @@ class User < ApplicationRecord
   end
   has_many :buyer_histories
   has_many :items, dependent: :destroy
+  has_one  :self_introduction
 end
