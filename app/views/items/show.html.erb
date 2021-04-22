@@ -40,10 +40,10 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= link_to "#" do %>
+          <td class="detail-value"><%= link_to user_path(@item.user_id) do %>
             <%= @item.user.nickname %>
-          <% end %></td>
-          <td class="detail-value"><%= @item.user.nickname %></td>
+          <% end %>
+          </td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>

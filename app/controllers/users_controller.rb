@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @items = Item.select("user_id")
-    
-    @item = Item.find(params[:id])
+    @user = User.find(params[:id])
   end
 
 end
